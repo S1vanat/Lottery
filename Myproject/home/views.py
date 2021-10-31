@@ -14,16 +14,20 @@ def home(request):
 def page1(request):
     return render(request, 'page1.html')
 
-
 def randompage(request):
+    # number_count = 1
+    # if 'count' in request.session:
+    #     number_count = request.session['count']
+    # else:
+    #     request.session['count'] = 1
     random_number = r.randrange(100000, 1000000)
-    return render(request, 'randompage.html', {
+    context = {
         'random_number' : random_number,
         'two_num_last' : str(random_number)[4:],
         'three_num_first' : str(random_number)[:3],
         'three_num_last' : str(random_number)[3:],
-        'test' : ""
-        })
+        }
+    return render(request, 'randompage.html' ,context)
 
 def allreward(request):
-    return render(request, 'allreward.html')
+    return render(request, 'allreward.html',)
