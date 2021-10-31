@@ -24,3 +24,6 @@ def randompage(request):
         'three_num_last' : str(random_number)[3:],
         'test' : ""
         })
+
+def allreward(request):
+    return render(request, 'allreward.html')
