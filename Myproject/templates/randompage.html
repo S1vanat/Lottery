@@ -22,11 +22,9 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">ลำดับ</th>
-            <th scope="col">เลขรางวัลที่ 1</th>
-            <th scope="col">เลขหน้า 3 ตัว</th>
-            <th scope="col">เลขท้าย 3 ตัว</th>
-            <th scope="col">เลขท้าย 2 ตัว</th>
+            {% for i in herder %}
+            <th scope="col">{{ i }}</th>
+            {% endfor %}
           </tr>
         </thead>
         <tbody>
