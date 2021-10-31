@@ -1,0 +1,22 @@
+{% extends 'navbar.html'%} {% block content%}
+<div class="container">
+  <div class="header">
+    <h1>สุ่มตัวเลข</h1>
+    <hr />
+  </div>
+  <div class="section">
+    <div class="random_number">
+      <h1>เลขที่ออก</h1>
+      <p>{{ random_number }}</p>
+      <button type="submit" class="btn btn-success">สุ่มใหม่</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .random_number {
+    text-align: center;
+    font-size: 50px;
+  }
+</style>
+{% endblock %}

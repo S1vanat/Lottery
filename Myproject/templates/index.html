@@ -1,12 +1,43 @@
 {% extends 'navbar.html '%} {% block content %}
 <div class="container">
-  <h1>Herder</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nihil
-    voluptatem maxime delectus exercitationem eaque cupiditate vel, nisi quae
-    porro ea assumenda sit corrupti numquam atque ut deserunt quisquam quasi!
-  </p>
-  <hr />
+  <div class="header">
+    <h1>ผลการออกสลากรางวัล 5 ปี</h1>
+    <hr />
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">สุ่มตัวเลขรางวัล</h5>
+      <p class="card-text">
+        สุ่มเลขรางวัลที่อาจจะเกิดขึ้น ในกรณีที่คิดอะไรไม่ออก
+      </p>
+      <a href="randompage/" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+  <!--  card 2 -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">
+        With supporting text below as a natural lead-in to additional content.
+      </p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+  <!-- card 3 -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">
+        With supporting text below as a natural lead-in to additional content.
+      </p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
 </div>
-<div><p>นี่คือกล่องที่ 2</p></div>
+
+<style>
+  .header {
+    margin: 2%;
+  }
+</style>
 {% endblock%}
