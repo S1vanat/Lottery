@@ -32,4 +32,4 @@ def randompage(request):
     return render(request, 'randompage.html' ,context)
 
 def allreward(request):
-    return render(request, 'allreward.html',)
+    return render(request, 'allreward.html')
