@@ -20,7 +20,7 @@ def randompage(request):
     #     number_count = request.session['count']
     # else:
     #     request.session['count'] = 1
-    random_number = r.randrange(100000, 1000000)
+    random_number = r.randrange(000000, 1000000)
     list_text = ['ลำดับ','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {
         'random_number' : random_number,
