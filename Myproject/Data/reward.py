@@ -31,7 +31,6 @@ def add_in_dict(list_text):
         data.update({'day' : list_text[num_id - 4] + " " + list_text[num_id - 3] , 'year' : list_text[num_id - 2], 'one_reward': list_text[num_id - 1]})
         num += 1
     return dict_reward
-    # print(dict_reward[713])
 
 def information():
     if res.status_code == 200:
@@ -54,14 +53,10 @@ def information():
         day_number = get_text(list_text)
         dict_daynumber = add_in_dict(day_number) 
         # ---------------- convert dict to json ------------
-        # app_json = pd.DataFrame(dict_daynumber)
-        # data_Obj = app_json.transpose()
-        # print(data_Obj)
         json_str = json.dumps(dict_daynumber, ensure_ascii=False) # ensure_ascii=False แปลงภาษา ไม่ Encode
         json_file = open('data.reward.json', 'w')
         json_file.write(json_str)
         json_file.close()
-        # print(day_number[:20])
     elif res.status_code == 404:
         print("Not found")
     else:
