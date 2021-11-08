@@ -16,7 +16,9 @@
   <div class="section">
     <div class="random_number">
       <h1>เลขที่ออก</h1>
-      <p>{{ random_number }}</p>
+      <div class="randomnum">
+        <p>{{ random_number }}</p>
+      </div>
       <hr />
       <button type="submit" class="btn btn-primary">
         <a href="{% url 'randompage' %}">สุ่มใหม่อีกครั้ง</a>
@@ -50,6 +52,13 @@
 </div>
 
 <style>
+  .randomnum {
+    border: 2px solid red;
+    border-radius: 50px;
+    width: 20%;
+    margin-left: 40%;
+    background-color: yellow;
+  }
   .random_number {
     text-align: center;
     font-size: 50px;
