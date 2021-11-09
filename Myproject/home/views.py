@@ -26,7 +26,7 @@ def randompage(request):
     return render(request, 'randompage.html' ,context)
 
 def reaad_file_json():
-    a = open('data_reward.json')
+    a = open('data_reward.json', encoding="utf8")
     data = json.load(a)
     return data
 
@@ -36,4 +36,7 @@ def allreward(request):
     context = {'j_file': j_file,
     'herder' : list_text,
     }
+    # print(j_file)
     return render(request, 'allreward.html', context)
+
+# [{ id: 1, day : 1 day , year : }]
