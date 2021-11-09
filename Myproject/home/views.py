@@ -4,7 +4,6 @@ from django.template import RequestContext
 import random as r
 from django.template import Context, Template
 import json
-import os
 
 # Create your views here.
 def home(request):
@@ -37,7 +36,4 @@ def allreward(request):
     context = {'j_file': j_file,
     'herder' : list_text,
     }
-    # print(j_file)
     return render(request, 'allreward.html', context)
-
-# [{ id: 1, day : 1 day , year : }]
