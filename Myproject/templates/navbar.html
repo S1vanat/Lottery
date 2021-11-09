@@ -1,139 +1,123 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style>
+
+<head>
+  <style>
     @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
-    </style>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <nav
-      class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #22262b"
-    >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <style>
-          a {
-            font-family: 'Kanit', sans-serif;
-          }
-        </style>
-        <a class="navbar-brand" href="/">LOTTORY</a>
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" href="/"
-              >หน้าหลัก <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/randompage"
-              >สุ่มเลขล็อตเตอรี่ <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/allreward"
-              >เลขรางวัลทั้งหมด <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/page1"
-              >สรุปเลขรางวัลที่ออกบ่อยที่สุดและออกน้อยที่สุด <span class="sr-only">(current)</span></a
-            >
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #22262b">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <div>
+        <img class="logoticket" src="{% static 'images/plane-tickets.png' %}">
       </div>
-    </nav>
-    <div style="width: 100%; height: 100%; background-color: whitesmoke">
-      {% block content %} {% endblock%}
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">หน้าหลัก <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/randompage">สุ่มเลขล็อตเตอรี่ <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/allreward">เลขรางวัลทั้งหมด <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/page1">สรุปเลขรางวัลที่ออกบ่อยที่สุดและออกน้อยที่สุด <span
+              class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
     </div>
-    <footer
-      class="page-footer font-small teal pt-4"
-      style="background: #555e61; bottom: 0px"
-    >
-      <!-- Footer Text -->
-      <div class="container-fluid text-center text-md-left">
-        <!-- Grid row -->
-        <div class="row">
-          <!-- Grid column -->
-          <div class="col-md-6 mt-md-0 mt-3">
-            <!-- Content -->
-            <h5 class="text-uppercase font-weight-bold" style="color: rgb(168, 169, 214)">
-              สลากกินแบ่งรัฐบาล
-            </h5>
-            <style>
-              j, h5 {
-                font-family: 'Kanit', sans-serif;
-              }
-            </style>
-            <j style="color: white">
-              สลากกินแบ่งรัฐบาล คือล็อตเตอรีชนิดหนึ่งในประเทศไทย ผู้ที่ต้องการจะขายต้องขออนุญาตจากสำนักงานสลากกินแบ่งรัฐบาลก่อน 
-              ในปัจจุบันออกทุกวันที่ 1 และ 16 ของเดือน
-            </j>
-          </div>
-          <!-- Grid column -->
-
-          <hr class="clearfix w-100 d-md-none pb-3" />
-
-          <!-- Grid column -->
-          <div class="col-md-6 mb-md-0 mb-3">
-            <!-- Content -->
-            <h5 class="text-uppercase font-weight-bold" style="color: rgb(168, 169, 219)">
-              สลากเลขท้าย 3 ตัวและ 2 ตัว
-            </h5>
-            <j style="color: white">
-              สลากเลขท้าย 3 ตัวและ 2 ตัว หรือเรียกกันโดยทั่วไปว่า หวยบนดิน เป็นนโยบายหนึ่งของรัฐบาล พ.ต.ท.ทักษิณ ชินวัตร ริเริ่ม 
-              มีจุดประสงค์เพื่อนำ หวยใต้ดิน ซึ่งผิดกฎหมาย มาผ่านกระบวนการทางกฎหมายมและปรับปรุงให้เป็นของรัฐบาล 
-              อีกทั้งยังเป็นการกวาดล้างเจ้ามือหวยใต้ดิน และนำรายได้ไปสร้างประโยชน์แก่ประเทศชาติ โครงการสำคัญที่นำรายได้จากหวยบนดินไปใช้ 
-              คือ โครงการหนึ่งอำเภอหนึ่งทุน (ODOS)
-            </j>
-          </div>
-          <!-- Grid column -->
+  </nav>
+  <div style="width: 100%; height: 100%; background-color: whitesmoke">
+    {% block content %} {% endblock%}
+  </div>
+  <footer class="page-footer font-small teal pt-4" style="background: #555e61; bottom: 0px">
+    <!-- Footer Text -->
+    <div class="container-fluid text-center text-md-left">
+      <!-- Grid row -->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3">
+          <!-- Content -->
+          <h5 class="text-uppercase font-weight-bold" style="color: rgb(160, 161, 175)">
+            สลากกินแบ่งรัฐบาล
+          </h5>
+          <j style="color: white">
+            สลากกินแบ่งรัฐบาล คือล็อตเตอรีชนิดหนึ่งในประเทศไทย
+            ผู้ที่ต้องการจะขายต้องขออนุญาตจากสำนักงานสลากกินแบ่งรัฐบาลก่อน
+            ในปัจจุบันออกทุกวันที่ 1 และ 16 ของเดือน
+          </j>
         </div>
-        <!-- Grid row -->
-      </div>
-      <!-- Footer Text -->
+        <!-- Grid column -->
 
-      <!-- Copyright -->
-      <div
-        class="footer-copyright text-center py-3"
-        style="background: #1e282d; color: white"
-      >
-        © 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+        <hr class="clearfix w-100 d-md-none pb-3" />
+
+        <!-- Grid column -->
+        <div class="col-md-6 mb-md-0 mb-3">
+          <!-- Content -->
+          <h5 class="text-uppercase font-weight-bold" style="color: rgb(160, 161, 175)">
+            สลากเลขท้าย 3 ตัวและ 2 ตัว
+          </h5>
+          <j style="color: white">
+            สลากเลขท้าย 3 ตัวและ 2 ตัว หรือเรียกกันโดยทั่วไปว่า หวยบนดิน เป็นนโยบายหนึ่งของรัฐบาล พ.ต.ท.ทักษิณ ชินวัตร
+            ริเริ่ม
+            มีจุดประสงค์เพื่อนำ หวยใต้ดิน ซึ่งผิดกฎหมาย มาผ่านกระบวนการทางกฎหมายมและปรับปรุงให้เป็นของรัฐบาล
+            อีกทั้งยังเป็นการกวาดล้างเจ้ามือหวยใต้ดิน และนำรายได้ไปสร้างประโยชน์แก่ประเทศชาติ
+            โครงการสำคัญที่นำรายได้จากหวยบนดินไปใช้
+            คือ โครงการหนึ่งอำเภอหนึ่งทุน (ODOS)
+          </j>
+        </div>
+        <!-- Grid column -->
       </div>
-      <!-- Copyright -->
-    </footer>
-  </body>
+      <!-- Grid row -->
+    </div>
+    <!-- Footer Text -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="background: #1e282d; color: white">
+      © 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+
 </html>
+<style>
+  j,
+  h5 {
+    font-family: 'Kanit', sans-serif;
+  }
+
+  .logoticket {
+    width: 50px;
+    height: 50px;
+  }
+
+  a {
+    font-family: 'Kanit', sans-serif;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
+</style>
