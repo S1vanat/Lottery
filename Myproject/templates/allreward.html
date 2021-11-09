@@ -30,8 +30,13 @@
 
 <div class="container-fluid">
   <div class="row m-3">
-    <h2>Basic Table</h2>
+    <h2>ตารางแสดงเลขรางวัล ย้อนหลัง 10 ปี</h2>
     <hr />
+  </div>
+  <div class="row mr-3">
+    <hr />
+    <p>ตั้งแต่วันที่ 1 ตุลาคม 2554 จนถึง 1 พฤศจิกายน 2564</p>
+    <br />
   </div>
   <table class="table">
     <thead>
@@ -44,14 +49,16 @@
     <tbody>
       {% for js in j_file %}
       <tr>
-        <td>{{js}}</td>
-        <td>{{ js.day }}</td>
-        <td>{{j_file.js.year}}</td>
-        <td>{{j_file.js.one_reward}}</td>
+        <td>{{js.id}}</td>
+        <td>{{js.day }}</td>
+        <td>{{js.year}}</td>
+        <td>{{js.one_reward}}</td>
+        <td>{{js.one_reward|slice:"0:3"}}</td>
+        <td>{{js.one_reward|slice:"0:-3"}}</td>
+        <td>{{js.one_reward|slice:"4:"}}</td>
       </tr>
-      {{ js.one_reward }} {% endfor %}
+      {% endfor %}
     </tbody>
   </table>
 </div>
-
-{{j_file}} {%endblock%}
+{%endblock%}

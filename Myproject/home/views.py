@@ -39,3 +39,5 @@ def allreward(request):
     }
     # print(j_file)
     return render(request, 'allreward.html', context)
+
+# [{ id: 1, day : 1 day , year : }]

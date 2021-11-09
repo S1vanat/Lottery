@@ -22,13 +22,13 @@ def get_text(list_text):
 
 def add_in_dict(list_text):
     """add from list to dict and add key , id"""
-    dict_reward = {}
+    dict_reward = []
     data = {}
-    num = 0
+    num = 1
     for num_id in range(0, len(list_text), 4):
         data = {}
-        dict_reward[num] = data
-        data.update({'day' : list_text[num_id - 4] + " " + list_text[num_id - 3] , 'year' : list_text[num_id - 2], 'one_reward': list_text[num_id - 1]})
+        data.update({'id' : num ,'day' : list_text[num_id - 4] + " " + list_text[num_id - 3] , 'year' : list_text[num_id - 2], 'one_reward': list_text[num_id - 1]})
+        dict_reward.append(data)
         num += 1
     return dict_reward
 
