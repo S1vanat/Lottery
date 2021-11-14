@@ -22,21 +22,17 @@
   table {
     width: 100%;
     text-align: center;
-
-  
   }
-
   th {
     height: 50px;
   }
-  .trcolor{
+  .trcolor {
     background-color: rgb(255, 166, 0);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    
-    
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+      rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+      rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   }
 </style>
-
 <div class="container-fluid">
   <div class="row m-3">
     <h2>ตารางแสดงเลขรางวัล ย้อนหลัง 10 ปี</h2>
@@ -45,29 +41,40 @@
   <div class="row mr-3">
     <hr />
     <p>ตั้งแต่วันที่ 1 ตุลาคม 2554 จนถึง 1 พฤศจิกายน 2564</p>
-    <br />
   </div>
-  <table class="table">
-    <thead>
-      <tr class = "trcolor">
-        {% for herd in herder%}
-        <th>{{ herd }}</th>
-        {% endfor %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for js in j_file %}
-      <tr>
-        <td>{{js.id}}</td>
-        <td>{{js.day }}</td>
-        <td>{{js.year}}</td>
-        <td>{{js.one_reward}}</td>
-        <td>{{js.one_reward|slice:"0:3"}}</td>
-        <td>{{js.one_reward|slice:"0:-3"}}</td>
-        <td>{{js.one_reward|slice:"4:"}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <hr />
+  <div class="row mt-2">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr class="trcolor">
+            {% for herd in herder%}
+            <th>{{ herd }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for js in j_file %}
+          <tr>
+            <td>{{js.id}}</td>
+            <td>{{js.day }}</td>
+            <td>{{js.year}}</td>
+            <td>{{js.one_reward}}</td>
+            <td>{{js.one_reward|slice:"0:3"}}</td>
+            <td>{{js.one_reward|slice:"3:6"}}</td>
+            <td>{{js.one_reward|slice:"4:"}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h5>ความถี่ที่เกิดขึ้นทั้งหมด 10 ปี</h5>
+      <hr />
+    </div>
+  </div>
 </div>
+<div class="container"></div>
 {%endblock%}

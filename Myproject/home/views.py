@@ -32,11 +32,28 @@ def reaad_file_json():
 
 def allreward(request):
     j_file = reaad_file_json()
+    freq = frequency(j_file)
     list_text = ['ลำดับ','วันที่','ปี','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {'j_file': j_file,
     'herder' : list_text,
     }
-    # print(j_file)
     return render(request, 'allreward.html', context)
 
-# [{ id: 1, day : 1 day , year : }]
+def frequency(j_file):
+    dict_count = {}
+    list_all_num = []
+    for num in j_file:
+        list_all_num.append(num['one_reward'][4:])
+
+    for key in list_all_num:
+        count = 0
+        if (key in dict_count):
+            count = dict_count[key]
+        dict_count[key] = count + 1
+    sort_dict = dict(sorted(dict_count.items()))
+    
+# 795283  5
+# 800000  6
+# {795283:count}
+# 1 : เลข เลข เลข เลข
+# 2 : เลข เลข เลข เลข
