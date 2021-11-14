@@ -23,28 +23,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <div>
-        <img class="logoticket" src="{% static 'images/plane-tickets.png' %}">
-      </div>
+        <img class="logoticket" src="{% static 'images/lotto.png' %}">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="/">หน้าหลัก <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/" id="hoverrandom">หน้าหลัก <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/randompage">สุ่มเลขล็อตเตอรี่ <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/randompage" id="hoverrandom">สุ่มเลขล็อตเตอรี่ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/allreward">เลขรางวัลทั้งหมด <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/allreward" id="hoverrandom">เลขรางวัลทั้งหมด <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/page1">สรุปเลขรางวัลที่ออกบ่อยที่สุดและออกน้อยที่สุด <span
+          <a class="nav-link" href="/page1" id="hoverrandom">สรุปเลขรางวัลที่ออกบ่อยที่สุดและออกน้อยที่สุด <span
               class="sr-only">(current)</span></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        <input class="form-control mr-sm-2" type="" placeholder="" aria-label="" />
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
+          ค้นหา
         </button>
       </form>
     </div>
@@ -95,8 +93,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3" style="background: #1e282d; color: white">
-      © 2020 Copyright:
-      <a href="#"> PSIT </a>
+      UNLUCKY PROJECT PSIT 2021
     </div>
     <!-- Copyright -->
   </footer>
@@ -110,13 +107,21 @@
   }
 
   .logoticket {
-    width: 50px;
-    height: 50px;
+    width: 4.5%;
+    height: 4.5%;
+    background-size: cover;
+    overflow: hidden;
   }
 
-  a {
+  a, button {
     font-family: 'Kanit', sans-serif;
   }
 
   @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
+  #hoverrandom:hover{ 
+    background: rgba(122, 123, 139, 0.3);
+    border: 1px solid rgb(62, 63, 66);
+    border-radius: 15px;
+
+  }
 </style>
