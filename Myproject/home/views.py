@@ -51,9 +51,3 @@ def frequency(j_file):
             count = dict_count[key]
         dict_count[key] = count + 1
     sort_dict = dict(sorted(dict_count.items()))
-    
-# 795283  5
-# 800000  6
-# {795283:count}
-# 1 : เลข เลข เลข เลข
-# 2 : เลข เลข เลข เลข
