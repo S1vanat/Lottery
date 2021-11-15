@@ -33,9 +33,14 @@ def reaad_file_json():
 def allreward(request):
     j_file = reaad_file_json()
     freq = frequency(j_file)
+    yeard = [y for y in range(2564, 2553, -1)]
     list_text = ['ลำดับ','วันที่','ปี','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {'j_file': j_file,
-    'herder' : list_text,
+        'herder' : list_text,
+        'time_herder' : freq[0],
+        'count' : freq[1],
+        'yeard' : yeard,
+        'list_count' : freq[2]
     }
     return render(request, 'allreward.html', context)
 
@@ -50,4 +55,18 @@ def frequency(j_file):
         if (key in dict_count):
             count = dict_count[key]
         dict_count[key] = count + 1
-    sort_dict = dict(sorted(dict_count.items()))
+    sort_dict = dict(sorted(dict_count.items(), key=lambda x: x[1]))
+    # sorted by values
+    sort_by_values = sorted(dict_count.items(), key=lambda x: x[1])
+    list_count = []
+    concat_num = ""
+    keep = 1
+    for s_time in sort_by_values:
+        if s_time[1] == keep:
+            concat_num = concat_num + s_time[0] + " "
+        else:
+            list_count.append(concat_num)
+            keep = s_time[1]
+            concat_num = ""
+    list_header = [str(index) + " " + "ครัง" for index in range(1,len(list_count)+1)]
+    return list_header, sort_dict, list_count

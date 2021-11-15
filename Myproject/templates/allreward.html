@@ -34,6 +34,7 @@
   }
 </style>
 <div class="container-fluid">
+  <!-- hearder -->
   <div class="row m-3">
     <h2>ตารางแสดงเลขรางวัล ย้อนหลัง 10 ปี</h2>
     <hr />
@@ -45,6 +46,7 @@
   <hr />
   <div class="row mt-2">
     <div class="col">
+      <!-- table -->
       <table class="table">
         <thead>
           <tr class="trcolor">
@@ -69,12 +71,22 @@
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <h5>ความถี่ที่เกิดขึ้นทั้งหมด 10 ปี</h5>
-      <hr />
+  <!-- Freque  table -->
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <h5>ความถี่ที่เกิดขึ้นทั้งหมด 10 ปี</h5>
+        <hr />
+      </div>
     </div>
+    {% for index in time_herder%}
+    <div class="row">
+      <div class="col">{{index}}</div>
+      {% for list_count in list_count %}
+      <div class="col">{{list_count}}}</div>
+    </div>
+    {% endfor %} {% endfor %}
   </div>
 </div>
-<div class="container"></div>
+
 {%endblock%}
