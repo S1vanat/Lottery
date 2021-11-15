@@ -27,15 +27,14 @@
     height: 50px;
   }
   .trcolor {
-    background-color: rgb(255, 166, 0);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
-      rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
-      rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    /* background-color: rgb(255, 166, 0); */
+    background-color: #18b7be;
+    border-radius: 5px;
   }
-  h5{
+  h5 {
     text-align: center;
   }
-  .alcount{
+  .alcount {
     text-align: left;
   }
 </style>
@@ -77,23 +76,32 @@
       </table>
     </div>
   </div>
+  <br />
   <!-- Freque  table -->
-  <div class="container mt-3">
+  <div class="container" style="border-radius: 50px 30px">
+    <h3>ความถี่ที่เกิดขึ้นทั้งหมด 10 ปี</h3>
+    <hr />
     <div class="row">
-      <div class="col"
-      style="background-color: #18B7BE; color: white;">
-        <h5>ความถี่ที่เกิดขึ้นทั้งหมด 10 ปี</h5 >
-        <hr />
+      <div
+        class="col"
+        style="background-color: #18b7be; color: white; border-radius: 5px"
+      >
+        <br />
+        <h5>ความถี่ที่เกิดขึ้นทั้งหมด 10 ปี</h5>
+        <div style="height: 2px; background: #fff"></div>
+        <br />
       </div>
     </div>
+    <br />
     {% for index, list_count in list_count%}
-    <div class="row"
-    style="border: 1px solid black; border-radius: 1px;">
-      <div class="col"><p>{{index}}</p></div>
-      <div class="col"><p class="alcount">{{list_count}}</p></div>
+    <div class="row" style="border-bottom: 0.5px solid rgb(31, 180, 185)">
+      <div class="col-6"><p>{{index}}</p></div>
+      <div class="col-6"><p class="alcount">{{list_count}}</p></div>
     </div>
+    <br />
     {% endfor %}
   </div>
+  <hr />
 </div>
 
 {%endblock%}

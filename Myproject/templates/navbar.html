@@ -21,7 +21,7 @@
   <body>
     <nav
       class="navbar navbar-expand-lg navbar-dark"
-      style="background-color: #178CA4"
+      style="background-color: #178ca4"
     >
       <button
         class="navbar-toggler"
@@ -66,7 +66,7 @@
             placeholder=""
             aria-label=""
           />
-          <button class="btn btn-success my-2 my-sm-0" type="submit">
+          <button class="btn my-2 my-sm-0" type="submit" id="button-seach">
             ค้นหา
           </button>
         </form>
@@ -76,7 +76,7 @@
     {% block content %} {% endblock%}
     <footer
       class="page-footer font-small teal pt-4"
-      style="background: #F9F7F0; bottom: 0px"
+      style="background: #f9f7f0; bottom: 0px"
     >
       <!-- Footer Text -->
       <div class="container-fluid text-center text-md-left">
@@ -85,10 +85,7 @@
           <!-- Grid column -->
           <div class="col-md-6 mt-md-0 mt-3">
             <!-- Content -->
-            <h5
-              class="text-uppercase font-weight-bold"
-              style="color: black"
-            >
+            <h5 class="text-uppercase font-weight-bold" style="color: black">
               สลากกินแบ่งรัฐบาล
             </h5>
             <j style="color: black">
@@ -104,10 +101,7 @@
           <!-- Grid column -->
           <div class="col-md-6 mb-md-0 mb-3">
             <!-- Content -->
-            <h5
-              class="text-uppercase font-weight-bold"
-              style="color: black"
-            >
+            <h5 class="text-uppercase font-weight-bold" style="color: black">
               สลากเลขท้าย 3 ตัวและ 2 ตัว
             </h5>
             <j style="color: black">
@@ -130,7 +124,7 @@
       <!-- Copyright -->
       <div
         class="footer-copyright text-center py-3"
-        style="background: #072A40; color: white"
+        style="background: #072a40; color: white"
       >
         UNLUCKY PROJECT PSIT 2021
       </div>
@@ -162,5 +156,9 @@
     background: rgba(122, 123, 139, 0.3);
     border: 1px solid rgb(62, 63, 66);
     border-radius: 15px;
+    padding-left: 10px;
+  }
+  #button-seach {
+    background: rgb(255, 166, 0);
   }
 </style>
