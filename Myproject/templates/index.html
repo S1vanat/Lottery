@@ -28,8 +28,8 @@
               สรุปผลเลขรางวัลที่ออกบ่อยที่สุดในแต่ละหลักและในแต่ละรางวัลว่าเลขไหนที่มีความถี่ในการออกรางวัลที่สุดและเลขไหนที่มีความถี่ในการออกรางวัลน้อยที่สุด
               ซึ่งจะแบ่งเป็นสามรางวัลได้แก่ เลขหน้าสามหลัก เลขท้ายสามหลัก และเลขท้ายสองหลัก
             </p>
-            <button type="submit" class="btn btn-info">
-              <a href="/randompage" style="color: white; direction: none">ตรวจสอบสรุปผลรางวัล</a>
+            <button type="submit" class="btn">
+              <a href="/randompage" class="example_d"style="color: white; direction: none">ตรวจสอบสรุปผลรางวัล</a>
             </button>
           </div>
           <div class="col-6">
@@ -53,8 +53,8 @@
             <p style="color: black">
               รวมผลการออกรางวัลสลากกินแบ่งรัฐบาล(ล็อตเตอรี่)ย้อนหลังในปี 2016-2021 ทั้งหมด
             </p>
-            <button type="submit" class="btn btn-info">
-              <a href="/allreward" style="color: white; direction: none">เลขรางวัลทั้งหมด</a>
+            <button type="submit" class="btn">
+              <a href="/allreward" class="example_d style="color: white; direction: none">เลขรางวัลทั้งหมด</a>
             </button>
           </div>
         </div>
@@ -70,8 +70,8 @@
               เป็นระบบการสุ่มสำหรับนักเสี่ยงโชคที่ไม่รู้ว่าจะซื้อเลขอะไรดีในงวดนั้นๆ
               เพื่อเป็นทางเลือกให้เหล่านักเสี่ยงโชคจนกว่าจะเจอเลขที่ชอบ
             </p>
-            <button type="submit" class="btn btn-info">
-              <a href="/randompage" style="color: white; direction: none">สุ่มเลขล๊อตเตอรี่เลย</a>
+            <button type="submit" class="btn">
+              <a href="/randompage" class="example_d style="color: white; direction: none">สุ่มเลขล๊อตเตอรี่เลย</a>
             </button>
           </div>
           <div class="col-6">
@@ -99,5 +99,21 @@
     margin-top: 3%;
     left: 0;
   }
+  .example_d {
+    color: #fff !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #60a3bc;
+padding: 10px;
+border-radius: 5px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+}
+
+  .example_d:hover {
+text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+transition: all 0.4s ease 0s;
+}
 </style>
 {% endblock%}
