@@ -79,13 +79,12 @@
         <hr />
       </div>
     </div>
-    {% for index in time_herder%}
+    {% for index, list_count in list_count%}
     <div class="row">
-      <div class="col">{{index}}</div>
-      {% for list_count in list_count %}
-      <div class="col">{{list_count}}}</div>
+      <div class="col"><p>{{index}}</p></div>
+      <div class="col"><p>{{list_count}}</p></div>
     </div>
-    {% endfor %} {% endfor %}
+    {% endfor %}
   </div>
 </div>
 
