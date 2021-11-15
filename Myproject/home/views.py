@@ -37,10 +37,9 @@ def allreward(request):
     list_text = ['ลำดับ','วันที่','ปี','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {'j_file': j_file,
         'herder' : list_text,
-        'time_herder' : freq[0],
         'count' : freq[1],
         'yeard' : yeard,
-        'list_count' : freq[2]
+        'list_count' : zip(freq[0], freq[2]),
     }
     return render(request, 'allreward.html', context)
 
