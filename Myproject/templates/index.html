@@ -29,12 +29,11 @@
               ซึ่งจะแบ่งเป็นสามรางวัลได้แก่ เลขหน้าสามหลัก เลขท้ายสามหลัก และเลขท้ายสองหลัก
             </p>
             <button type="submit" class="btn">
-              <a href="/randompage" class="example_d"style="color: white; direction: none">ตรวจสอบสรุปผลรางวัล</a>
+              <a href="/randompage" class="example_d" style="color: white; direction: none">ตรวจสอบสรุปผลรางวัล</a>
             </button>
           </div>
           <div class="col-6">
-            <img
-              src="https://images.pexels.com/photos/5550130/pexels-photo-5550130.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+            <img src="{% static 'images/rich3.jpg' %}" />
           </div>
         </div>
       </div>
@@ -44,9 +43,7 @@
       <div class="col-lg-12" style="background-color: #fff1d48f">
         <div class="row">
           <div class="col-6">
-            <img
-              src="https://images.pexels.com/photos/5701734/pexels-photo-5701734.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              class="img-rounded" />
+            <img src="{% static 'images/rich2.jpg' %}" class="img-rounded" />
           </div>
           <div class="col-6 p-l-5" style="margin-top: 4%">
             <h2 style="color: black">เลขรางวัลทั้งหมด</h2>
@@ -54,7 +51,7 @@
               รวมผลการออกรางวัลสลากกินแบ่งรัฐบาล(ล็อตเตอรี่)ย้อนหลังในปี 2016-2021 ทั้งหมด
             </p>
             <button type="submit" class="btn">
-              <a href="/allreward" class="example_d style="color: white; direction: none">เลขรางวัลทั้งหมด</a>
+              <a href="/allreward" class="example_d style=" color: white; direction: none">เลขรางวัลทั้งหมด</a>
             </button>
           </div>
         </div>
@@ -65,18 +62,17 @@
       <div class="col-lg-12" style="background-color: #fff1d48f">
         <div class="row">
           <div class="col-6" style="margin-top: 4%">
-            <h2 style="color: black">สุ่มเลขล๊อตเตอรี่</h2>
+            <h2 style="color: black">สุ่มเลขล็อตเตอรี่</h2>
             <p style="color: black">
               เป็นระบบการสุ่มสำหรับนักเสี่ยงโชคที่ไม่รู้ว่าจะซื้อเลขอะไรดีในงวดนั้นๆ
               เพื่อเป็นทางเลือกให้เหล่านักเสี่ยงโชคจนกว่าจะเจอเลขที่ชอบ
             </p>
             <button type="submit" class="btn">
-              <a href="/randompage" class="example_d style="color: white; direction: none">สุ่มเลขล๊อตเตอรี่เลย</a>
+              <a href="/randompage" class="example_d style=" color: white; direction: none">สุ่มเลขล็อตเตอรี่เลย</a>
             </button>
           </div>
           <div class="col-6">
-            <img
-              src="https://images.pexels.com/photos/5550130/pexels-photo-5550130.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+            <img src="{% static 'images/rich1.jpg' %}" />
           </div>
         </div>
       </div>
@@ -99,21 +95,22 @@
     margin-top: 3%;
     left: 0;
   }
+
   .example_d {
     color: #fff !important;
-text-transform: uppercase;
-text-decoration: none;
-background: #60a3bc;
-padding: 10px;
-border-radius: 5px;
-display: inline-block;
-border: none;
-transition: all 0.4s ease 0s;
-}
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #60a3bc;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+  }
 
   .example_d:hover {
-text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-transition: all 0.4s ease 0s;
-}
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    transition: all 0.4s ease 0s;
+  }
 </style>
 {% endblock%}
