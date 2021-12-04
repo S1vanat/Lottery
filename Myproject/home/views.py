@@ -7,6 +7,7 @@ import json
 
 # Create your views here.
 def home(request):
+    """rander to page home"""
     context = {'namae' : "Thanawath Petavibornsatarn",
         'age' : '15',
         'bd' : '20/04/2012'
@@ -14,9 +15,11 @@ def home(request):
     return render(request, 'index.html', context)
 
 def page1(request):
+    """rander to page1"""
     return render(request, 'page1.html')
 
 def randompage(request):
+    """random number in random"""
     random_number = r.randrange(000000, 1000000)
     list_text = ['เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {
@@ -25,13 +28,15 @@ def randompage(request):
         }
     return render(request, 'randompage.html' ,context)
 
-def reaad_file_json():
+def read_file_json():
+    """read file json"""
     a = open('data_reward.json', encoding="utf8")
     data = json.load(a)
     return data
 
 def allreward(request):
-    j_file = reaad_file_json()
+    """show header and show data number"""
+    j_file = read_file_json()
     freq = frequency(j_file)
     yeard = [y for y in range(2564, 2553, -1)]
     list_text = ['ลำดับ','วันที่','ปี','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
@@ -44,6 +49,7 @@ def allreward(request):
     return render(request, 'allreward.html', context)
 
 def frequency(j_file):
+    """frequency of number"""
     dict_count = {}
     list_all_num = []
     for num in j_file:
