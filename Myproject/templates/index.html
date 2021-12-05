@@ -9,8 +9,8 @@
     <h1><b>ผลการออกรางวัลสลากกินแบ่งรัฐบาลปี 2011-2021</b></h1>
     <hr />
   </div>
-  <div class="container-fluid">
-    <div class="row" style="height: 3%">
+  <div class="container">
+    <div class="row" style="height: 3%" id="card_hover">
       <div class="col-lg-12" style="background-color: #fff1d48f">
         <div class="row">
           <div class="col-6" style="margin-top: 4%">
@@ -38,8 +38,10 @@
         </div>
       </div>
     </div>
+    <br>
+    <br>
     <!-- card 2 -->
-    <div class="row" style="height: 3%">
+    <div class="row" style="height: 3%" id="card_hover">
       <div class="col-lg-12" style="background-color: #fff1d48f">
         <div class="row">
           <div class="col-6">
@@ -57,8 +59,10 @@
         </div>
       </div>
     </div>
+    <br>
+    <br>
     <!-- card 3 -->
-    <div class="row" style="height: 3%">
+    <div class="row" style="height: 3%" id="card_hover">
       <div class="col-lg-12" style="background-color: #fff1d48f">
         <div class="row">
           <div class="col-6" style="margin-top: 4%">
@@ -77,9 +81,33 @@
         </div>
       </div>
     </div>
-    <!--  -->
+    <br>
+    <br>
+    <!-- 4 -->
+    <div class="row" style="height: 3%" id="card_hover">
+      <div class="col-lg-12" style="background-color: #fff1d48f">
+        <div class="row">
+          <div class="col-6">
+            <img src="{% static 'images/pexels-pixabay-534216.jpg' %}" class="img-rounded" />
+          </div>
+          <div class="col-6 p-l-5" style="margin-top: 4%">
+            <h2 style="color: black">หาเปอร์เซ็นของแต่ละเลข</h2>
+            <p style="color: black">
+              การหาเปอร์เซ็นในแต่ละหลังของตัวเลขรางวัล จากรางวัลที่ 1 ของแต่ละงวดในจำนวน 10 ปี 
+            </p>
+            <button type="submit" class="btn">
+              <a href="/percent" class="example_d" style="color: white; direction: none"> ดูเปอร์เซ็นของแต่ละเลข</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <!-- end card -->
   </div>
 </div>
+
 <style>
   .header {
     margin: 2%;
@@ -112,5 +140,6 @@
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     transition: all 0.4s ease 0s;
   }
+
 </style>
-{% endblock%}
+{%endblock%}

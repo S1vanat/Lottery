@@ -52,8 +52,11 @@ def frequency(j_file):
     """frequency of number"""
     dict_count = {}
     list_all_num = []
+
     for num in j_file:
         list_all_num.append(num['one_reward'][4:])
+
+    # get dict number reward 
 
     for key in list_all_num:
         count = 0
@@ -75,3 +78,8 @@ def frequency(j_file):
             concat_num = ""
     list_header = [str(index) + " " + "ครัง" for index in range(1,len(list_count)+1)]
     return list_header, sort_dict, list_count
+
+
+def percent(request, j_file):
+    return render(request, 'percent.html')
+

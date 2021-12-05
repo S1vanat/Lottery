@@ -26,6 +26,7 @@ urlpatterns = [
     path('page1/', views.page1),
     path('randompage/', views.randompage, name="randompage"),
     path('allreward/', views.allreward),
+    path('percent/', views.percent, name='percent')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
