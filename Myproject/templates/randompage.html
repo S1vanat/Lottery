@@ -27,7 +27,7 @@
         <thead>
           <tr>
             {% for i in herder %}
-            <th scope="col">{{ i }}</th>
+            <th scope="col" class="header_table">{{ i }}</th>
             {% endfor %}
           </tr>
         </thead>
@@ -43,12 +43,17 @@
       Math.random() * (1000000 - 99999 + 1) + 99999
     );
     document.getElementById("full_random_number").innerHTML = random_number;
-    console.log(count);
-    var cell, row_th, tbody;
+    var cell, cell2, cell3, cell4, row_th, tbody;
     tbody = document.querySelector("#tbody");
     row_th = tbody.insertRow(0);
     cell = row_th.insertCell(0);
-    cell.innerHTML = random_number;
+    cell.innerHTML = random_number.toString().substr(4, 5);
+    cell2 = row_th.insertCell(0);
+    cell2.innerHTML = random_number.toString().substr(3, 5);
+    cell3 = row_th.insertCell(0);
+    cell3.innerHTML = random_number.toString().substr(0, 3);
+    cell4 = row_th.insertCell(0);
+    cell4.innerHTML = random_number.toString();
   }
 </script>
 <style>
@@ -73,6 +78,10 @@
   }
   p {
     margin: 0;
+  }
+  .header_table {
+    align-items: center;
+    color: rgb(0, 85, 170);
   }
 </style>
 {% endblock %}

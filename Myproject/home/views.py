@@ -50,14 +50,22 @@ def allreward(request):
 
 def frequency(j_file):
     """frequency of number"""
+    keep_max_year = '2565'
     dict_count = {}
     list_all_num = []
-
+    list_same_year = []
+    year_dict = {}
     for num in j_file:
         list_all_num.append(num['one_reward'][4:])
-
+        if keep_max_year == num['year']:
+            list_same_year.append(num['one_reward'])
+        else:
+            list_same_year = []
+            list_same_year.append(num['one_reward'])
+            year_dict[num['year']] = list_same_year
+            keep_max_year = num['year']
+    reward_year = [year_dict]
     # get dict number reward 
-
     for key in list_all_num:
         count = 0
         if (key in dict_count):
@@ -77,9 +85,17 @@ def frequency(j_file):
             keep = s_time[1]
             concat_num = ""
     list_header = [str(index) + " " + "ครัง" for index in range(1,len(list_count)+1)]
-    return list_header, sort_dict, list_count
+    return list_header, sort_dict, list_count, reward_year
 
 
-def percent(request, j_file):
+def percent(request):
+    # หาความน่าจะเป็นที่จะเกิด ในนี่
+    j_file = read_file_json()
+    freq = frequency(j_file)
+    reward_year = freq[3]
+
+    context = {
+        'data_reward' : reward_year,
+    }
     return render(request, 'percent.html')
 
