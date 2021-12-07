@@ -44,7 +44,7 @@ def allreward(request):
         'herder' : list_text,
         'count' : freq[1],
         'yeard' : yeard,
-        'list_count' : zip(freq[0], freq[2]),
+        'list_count' : zip(freq[1], freq[2]),
     }
     return render(request, 'allreward.html', context)
 
@@ -90,12 +90,37 @@ def frequency(j_file):
 
 def percent(request):
     # หาความน่าจะเป็นที่จะเกิด ในนี่
+    
     j_file = read_file_json()
     freq = frequency(j_file)
     reward_year = freq[3]
-
+    zero = reward_year[0]
+    # cal = zero["2555"][0][4].count("0") ปีทดลอง 2555
+    # for _ in range(len(zero["2555"])):
+    #     cal = {"0": zero['2555'][0].count("0")+zero['2555'][1].count("0")+zero['2555'][2].count("0")+zero['2555'][3].count("0")+zero['2555'][4].count("0")+zero['2555'][5].count("0")\
+    #         "0": zero['2555'][0].count("0")+zero['2555'][1].count("0")+"0": zero['2555'][0].count("0")+zero['2555'][1].count("0")}
+        # cal0 = {"0": zero["2555"][i].count("0"), "1": zero["2555"][i].count("1"), "2": zero["2555"][i].count('2'), "3": zero["2555"][i].count('3'), \
+        #     "4": zero["2555"][i].count("4"), "5": zero["2555"][i].count('5'), "6": zero["2555"][i].count('6'), \
+        #         "7": zero["2555"][i].count("7"), "8": zero["2555"][i].count('8'), "9": zero["2555"][i].count('9')}
+    count1 = 0
+    count2 = 0
+    for i in range(len(zero["2554"])):
+        cal = zero['2554'][i][0]
+        calnum0 = cal.count("5")
+        if calnum0 >= 1:
+            count1 += 1
+    for i in range(len(zero["2554"])):
+        cal = zero['2554'][i][0]
+        calnum1 = cal.count("4")
+        if calnum1 >= 1:
+            count2 += 1
+        # print(cal)
+    print(zero['2554'])
+    print(count1, count2)
+        
     context = {
         'data_reward' : reward_year,
     }
+    
     return render(request, 'percent.html')
 
