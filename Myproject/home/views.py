@@ -38,7 +38,7 @@ def allreward(request):
     """show header and show data number"""
     j_file = read_file_json()
     freq = frequency(j_file)
-    yeard = [y for y in range(2560, 2553, -1)]
+    yeard = [y for y in range(2554, 2553, -1)]
     list_text = ['ลำดับ','วันที่','ปี','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {'j_file': j_file,
         'herder' : list_text,
@@ -97,66 +97,71 @@ def percent(request):
     count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     position = 0
     lak = 1
-    year = 2560
-
-    for _ in range(6):
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("0")
-            if cal >= 1:
-                count0 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("1")
-            if cal >= 1:
-                count1 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("2")
-            if cal >= 1:
-                count2 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("3")
-            if cal >= 1:
-                count3 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("4")
-            if cal >= 1:
-                count4 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("5")
-            if cal >= 1:
-                count5 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("6")
-            if cal >= 1:
-                count6 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("7")
-            if cal >= 1:
-                count7 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("8")
-            if cal >= 1:
-                count8 += 1
-        for i in range(len(zero["2560"])):
-            cal = zero["2560"][i][position]
-            cal = cal.count("9")
-            if cal >= 1:
-                count9 += 1
-        print("หลักที่ %d: %d %d %d %d %d %d %d %d %d %d" %(lak, count0, count1, count2, count3, count4, count5, count6, count7, count8, count9))
-        position += 1
-        lak += 1
-        count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+    for j in range(2554,2565):
+        year = str(j) + ""
+        print(year)
+        for _ in range(6):
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("0")
+                if cal >= 1:
+                    count0 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("1")
+                if cal >= 1:
+                    count1 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("2")
+                if cal >= 1:
+                    count2 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("3")
+                if cal >= 1:
+                    count3 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("4")
+                if cal >= 1:
+                    count4 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("5")
+                if cal >= 1:
+                    count5 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("6")
+                if cal >= 1:
+                    count6 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("7")
+                if cal >= 1:
+                    count7 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("8")
+                if cal >= 1:
+                    count8 += 1
+            for i in range(len(zero[year])):
+                cal = zero[year][i][position]
+                cal = cal.count("9")
+                if cal >= 1:
+                    count9 += 1
+            print("หลักที่ %d: %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f" %(lak, (count0/len(zero[year]))*100, (count1/len(zero[year]))*100, (count2/len(zero[year]))*100, \
+                (count3/len(zero[year]))*100, (count4/len(zero[year]))*100, (count5/len(zero[year]))*100, (count6/len(zero[year]))*100, (count7/len(zero[year]))*100, \
+            (count8/len(zero[year]))*100, (count9/len(zero[year]))*100))
+            position += 1
+            lak += 1
+            count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        position = 0
+        lak = 1
     context = {
         'data_reward' : reward_year,
     }
-    
-    return render(request, 'percent.html')
+
+    return render(request, 'percent.html', context)
 
