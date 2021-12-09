@@ -38,7 +38,7 @@ def allreward(request):
     """show header and show data number"""
     j_file = read_file_json()
     freq = frequency(j_file)
-    yeard = [y for y in range(2564, 2553, -1)]
+    yeard = [y for y in range(2560, 2553, -1)]
     list_text = ['ลำดับ','วันที่','ปี','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {'j_file': j_file,
         'herder' : list_text,
@@ -90,34 +90,70 @@ def frequency(j_file):
 
 def percent(request):
     # หาความน่าจะเป็นที่จะเกิด ในนี่
-    
     j_file = read_file_json()
     freq = frequency(j_file)
     reward_year = freq[3]
     zero = reward_year[0]
-    # cal = zero["2555"][0][4].count("0") ปีทดลอง 2555
-    # for _ in range(len(zero["2555"])):
-    #     cal = {"0": zero['2555'][0].count("0")+zero['2555'][1].count("0")+zero['2555'][2].count("0")+zero['2555'][3].count("0")+zero['2555'][4].count("0")+zero['2555'][5].count("0")\
-    #         "0": zero['2555'][0].count("0")+zero['2555'][1].count("0")+"0": zero['2555'][0].count("0")+zero['2555'][1].count("0")}
-        # cal0 = {"0": zero["2555"][i].count("0"), "1": zero["2555"][i].count("1"), "2": zero["2555"][i].count('2'), "3": zero["2555"][i].count('3'), \
-        #     "4": zero["2555"][i].count("4"), "5": zero["2555"][i].count('5'), "6": zero["2555"][i].count('6'), \
-        #         "7": zero["2555"][i].count("7"), "8": zero["2555"][i].count('8'), "9": zero["2555"][i].count('9')}
-    count1 = 0
-    count2 = 0
-    for i in range(len(zero["2554"])):
-        cal = zero['2554'][i][0]
-        calnum0 = cal.count("5")
-        if calnum0 >= 1:
-            count1 += 1
-    for i in range(len(zero["2554"])):
-        cal = zero['2554'][i][0]
-        calnum1 = cal.count("4")
-        if calnum1 >= 1:
-            count2 += 1
-        # print(cal)
-    print(zero['2554'])
-    print(count1, count2)
-        
+    count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+    position = 0
+    lak = 1
+    year = 2560
+
+    for _ in range(6):
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("0")
+            if cal >= 1:
+                count0 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("1")
+            if cal >= 1:
+                count1 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("2")
+            if cal >= 1:
+                count2 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("3")
+            if cal >= 1:
+                count3 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("4")
+            if cal >= 1:
+                count4 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("5")
+            if cal >= 1:
+                count5 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("6")
+            if cal >= 1:
+                count6 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("7")
+            if cal >= 1:
+                count7 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("8")
+            if cal >= 1:
+                count8 += 1
+        for i in range(len(zero["2560"])):
+            cal = zero["2560"][i][position]
+            cal = cal.count("9")
+            if cal >= 1:
+                count9 += 1
+        print("หลักที่ %d: %d %d %d %d %d %d %d %d %d %d" %(lak, count0, count1, count2, count3, count4, count5, count6, count7, count8, count9))
+        position += 1
+        lak += 1
+        count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     context = {
         'data_reward' : reward_year,
     }
