@@ -4,6 +4,7 @@ from django.template import RequestContext
 import random as r
 from django.template import Context, Template
 import json
+import math
 
 # Create your views here.
 def home(request):
@@ -97,6 +98,10 @@ def percent(request):
     count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     position = 0
     lak = 1
+    list1 = []
+    list2 = [] 
+    list3 = [] 
+
     for j in range(2554,2565):
         year = str(j) + ""
         print(year)
@@ -151,16 +156,43 @@ def percent(request):
                 cal = cal.count("9")
                 if cal >= 1:
                     count9 += 1
-            print("หลักที่ %d: %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f" %(lak, (count0/len(zero[year]))*100, (count1/len(zero[year]))*100, (count2/len(zero[year]))*100, \
-                (count3/len(zero[year]))*100, (count4/len(zero[year]))*100, (count5/len(zero[year]))*100, (count6/len(zero[year]))*100, (count7/len(zero[year]))*100, \
-            (count8/len(zero[year]))*100, (count9/len(zero[year]))*100))
+            count0 = math.ceil((count0/len(zero[year]))*100)
+            count1 = math.ceil((count1/len(zero[year]))*100)
+            count2 = math.ceil((count2/len(zero[year]))*100)
+            count3 = math.ceil((count3/len(zero[year]))*100)
+            count4 = math.ceil((count4/len(zero[year]))*100)
+            count5 = math.ceil((count5/len(zero[year]))*100)
+            count6 = math.ceil((count6/len(zero[year]))*100)
+            count7 = math.ceil((count7/len(zero[year]))*100)
+            count8 = math.ceil((count8/len(zero[year]))*100)
+            count9 = math.ceil((count9/len(zero[year]))*100)
+            list1.append(count0)
+            list1.append(count1)
+            list1.append(count2)
+            list1.append(count3)
+            list1.append(count4)
+            list1.append(count5)
+            list1.append(count6)
+            list1.append(count7)
+            list1.append(count8)
+            list1.append(count9)
+
+            # print("หลักที่ %d: %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f" %(lak, count0, count1, count2, count3, count4, count5, count6, count7, count8, count9))
+            # เก็บตัวแปลลิส
             position += 1
             lak += 1
+            list2.append(list1)
             count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            list1 = []
+        list3.append(list2)
+        list2 = []
         position = 0
         lak = 1
+        print(list3)
     context = {
         'data_reward' : reward_year,
+        'year_2554' : list3[0][0],
+        'year_2555' : list3[1][0],
     }
 
     return render(request, 'percent.html', context)
