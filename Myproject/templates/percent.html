@@ -2,22 +2,36 @@
 <body>
   <div class="container-fluid">
     <br /><br />
-    <h1>เปอร์เซ็นของแต่ละเลข</h1>
-    <h4>
-      {{year_2554}}
-    </h4>
-    <h4>
-      {{year_2555}}
-    </h4>
+    <h1>เปอร์เซ็นการออกรางวัลของแต่ละเลขในแต่ละหลัก</h1>
     <hr />
-    
+    <div class="row mt-2">
+      <div class="col">
+        <!-- table -->
+        <table class="table">
+          <thead>
+            <tr class="trcolor">
+              {% for head in list_sequence%}
+              <th>{{ head }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for k in list3 %}
+            <tr>
+              <td>{{k}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
     <br />
   </div>
   
 </body>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
-  h1 {
+  h1, th {
     font-family: "Kanit", sans-serif;
   }
 </style>
