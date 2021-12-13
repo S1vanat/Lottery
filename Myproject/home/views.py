@@ -7,6 +7,7 @@ import json
 import math
 import csv
 import math as m
+import matplotlib.pyplot as plt
 # Create your views here.
 def home(request):
     """rander to page home"""
@@ -223,9 +224,14 @@ def page1(request):
     """rander to page1"""
     percent = percent_per_year()
     year = [i for i in range(10)]
-    f = open('2556', 'w')
-    writer = csv.writer(f)
-    writer.writerow(year)
-    writer.writerow(percent[1])
-    f.close()
+    left = [1, 2, 3, 4, 5]
+    height = [10, 24, 36, 40, 5]
+
+    tick_label = ['one', 'two', 'three', 'four', 'five']
+    plt.bar(left, height, tick_label = tick_label,
+        width = 0.8, color = ['red', 'green'])
+    plt.xlabel('x - axis')
+    plt.ylabel('y - axis')
+    plt.title('My bar chart!')
+    plt.show()
     return render(request, 'page1.html')
