@@ -223,15 +223,18 @@ def percent_per_year():
 def page1(request):
     """rander to page1"""
     percent = percent_per_year()
-    year = [i for i in range(10)]
-    left = [1, 2, 3, 4, 5]
-    height = [10, 24, 36, 40, 5]
-
-    tick_label = ['one', 'two', 'three', 'four', 'five']
+    left = [0,1,2,3,4,5,6,7,8,9] 
+    height = percent[0]
+    tick_label = [0,1,2,3,4,5,6,7,8,9]
+    max_percent = max(percent[0])
+    min_percent = max(percent[0])
+    plt.ylim(0, max_percent+5)
     plt.bar(left, height, tick_label = tick_label,
-        width = 0.8, color = ['red', 'green'])
+        width = 0.3, color = ['red', 'green'])
+    
     plt.xlabel('x - axis')
     plt.ylabel('y - axis')
     plt.title('My bar chart!')
     plt.show()
+    
     return render(request, 'page1.html')
