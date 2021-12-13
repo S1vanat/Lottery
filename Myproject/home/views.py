@@ -6,7 +6,7 @@ from django.template import Context, Template
 import json
 import math
 import csv
-
+import math as m
 # Create your views here.
 def home(request):
     """rander to page home"""
@@ -195,21 +195,37 @@ def percent(request):
     return render(request, 'percent.html', context)
 def percent_per_year():
     """find perccent per year for grah"""
-    list_coust = [[5,4,3,0,5,8,2,7,5,3], [18,12,16,13,19,20,9,9,15,13], [6,9,13,15,13,17,25,12,20,14], [16,11,12,13,19,9,20,15,17,12], [16,12,14,16,17,10,16,15,17,11], [11,21,16,17,17,17,11,12,9,13], [15,15,17,18,12,16,13,10,13,15], [12,14,13,13,16,16,17,22,8,13], [13,12,9,13,12,12,11,12,15,17], [14,13,14,11,10,14,8,18,9,9]]
+    list_coust = [[5,4,3,0,5,8,2,7,5,3], [18,12,16,13,19,20,9,9,15,13], [6,9,13,15,13,17,25,12,20,14],\
+     [16,11,12,13,19,9,20,15,17,12], [16,12,14,16,17,10,16,15,17,11], [11,21,16,17,17,17,11,12,9,13], \
+     [15,15,17,18,12,16,13,10,13,15], [12,14,13,13,16,16,17,22,8,13], [13,12,9,13,12,12,11,12,15,17], \
+     [14,13,14,11,10,14,8,18,9,9]]
     # ปี54 63 64 ใช้คนละสูตร
     keep_list = []
+    i_num = 0
     for num_count in list_coust:
         list_empty = []
-        for num_per in num_count:
-            list_empty.append((num_per / 144) * 100)
+        c_num = 144
+        if i_num == 0:
+            c_num = 42
+        elif i_num == 8:
+            c_num = 126
+        elif i_num == 9:
+            c_num = 120
+        else:
+            c_num = 144
+        for num4 in num_count:
+            list_empty.append((num4 / c_num) * 100)
         keep_list.append(list_empty)
+        i_num += 1
     return keep_list
 
 def page1(request):
     """rander to page1"""
-    with open('names.csv', newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            print(row['first_name'], row['last_name'])
+    percent = percent_per_year()
+    year = [i for i in range(10)]
+    f = open('2556', 'w')
+    writer = csv.writer(f)
+    writer.writerow(year)
+    writer.writerow(percent[1])
+    f.close()
     return render(request, 'page1.html')
-
