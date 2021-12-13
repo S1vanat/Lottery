@@ -186,14 +186,6 @@ def percent(request):
         list2 = []
         position = 0
         lak = 1
-    list_coust = [[18,12,16,13,19,20,9,9,15,13],[5,8,9,6]]
-    keep_list = []
-    for num_count in list_coust:
-        list_empty = []
-        for num_per in num_count:
-            list_empty.append((num_per / 144) * 100)
-        keep_list.append(list_empty)
-    print(keep_list)
     context = {
         'data_reward' : reward_year,
         'list3' : zip(list3, list_year),
@@ -201,6 +193,16 @@ def percent(request):
     }
 
     return render(request, 'percent.html', context)
+def percent_per_year():
+    """find perccent per year for grah"""
+    list_coust = [[18,12,16,13,19,20,9,9,15,13],[5,8,9,6]]
+    keep_list = []
+    for num_count in list_coust:
+        list_empty = []
+        for num_per in num_count:
+            list_empty.append((num_per / 144) * 100)
+        keep_list.append(list_empty)
+    return keep_list
 
 def page1(request):
     """rander to page1"""
