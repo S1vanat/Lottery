@@ -5,6 +5,7 @@ import random as r
 from django.template import Context, Template
 import json
 import math
+import csv
 
 # Create your views here.
 def home(request):
@@ -14,10 +15,6 @@ def home(request):
         'bd' : '20/04/2012'
     }
     return render(request, 'index.html', context)
-
-def page1(request):
-    """rander to page1"""
-    return render(request, 'page1.html')
 
 def randompage(request):
     """random number in random"""
@@ -99,10 +96,6 @@ def percent(request):
     position = 0
     lak = 1
     list_sequence = ["เลข 0", "เลข 1", "เลข 2", "เลข 3", "เลข 4", "เลข 5", "เลข 6", "เลข 7", "เลข 8", "เลข 9"]
-    list_2554_2564 = ["2554", "2554", "2554", "2554", "2554", "2554", "2555", "2555", "2555", "2555", "2555", "2555",\
-         "2556", "2556", "2556", "2556", "2556", "2556", "2557", "2557", "2557", "2557", "2557", "2557", "2558", "2558", "2558", "2558", "2558", "2558", "2559", "2559", "2559", "2559", "2559",\
-             "2559", "2560", "2560", "2560", "2560", "2560", "2560", "2561", "2561", "2561", "2561", "2561", "2561", "2562", "2562", "2562", "2562", "2562", "2562", "2563", "2563", "2563",\
-                     "2563", "2563", "2563", "2564", "2564", "2564", "2564", "2564", "2564"]
     list1 = []
     list2 = []
     list3 = []
@@ -193,13 +186,27 @@ def percent(request):
         list2 = []
         position = 0
         lak = 1
-
+    list_coust = [[18,12,16,13,19,20,9,9,15,13],[5,8,9,6]]
+    keep_list = []
+    for num_count in list_coust:
+        list_empty = []
+        for num_per in num_count:
+            list_empty.append((num_per / 144) * 100)
+        keep_list.append(list_empty)
+    print(keep_list)
     context = {
         'data_reward' : reward_year,
         'list3' : zip(list3, list_year),
         'list_sequence' : list_sequence,
-        'list_2554_2564' : list_2554_2564,
     }
 
     return render(request, 'percent.html', context)
+
+def page1(request):
+    """rander to page1"""
+    with open('names.csv', newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            print(row['first_name'], row['last_name'])
+    return render(request, 'page1.html')
 
