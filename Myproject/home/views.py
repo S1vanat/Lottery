@@ -38,12 +38,13 @@ def allreward(request):
     j_file = read_file_json()
     freq = frequency(j_file)
     yeard = [y for y in range(2554, 2553, -1)]
+    index = [1,2,3,4,5,6]
     list_text = ['ลำดับ','วันที่','ปี','เลขรางวัลที่ 1','เลขหน้า 3 ตัว','เลขท้าย 3 ตัว','เลขท้าย 2 ตัว']
     context = {'j_file': j_file,
         'herder' : list_text,
         'count' : freq[1],
         'yeard' : yeard,
-        'list_count' : zip(freq[1], freq[2]),
+        'list_count' : zip(index, freq[2]),
     }
     return render(request, 'allreward.html', context)
 
@@ -235,6 +236,6 @@ def page1(request):
     plt.xlabel('axis X is Number 0-9')
     plt.ylabel('axis Y is Frequency of winning numbers')
     plt.title('2564')
-    plt.show()
+    # plt.show()
     
     return render(request, 'page1.html')
