@@ -15,7 +15,7 @@
             <table style="width:100%">
               <tr>
                 {% for head in list_sequence%}
-                  <th>{{ head }}</th>
+                  <th class="centerr">{{ head }}</th>
                   {% endfor %}
               </tr>
             <h1 class="yearr">ปี : {{year}}</h1>
@@ -24,7 +24,7 @@
               {% for j in k %}
               <tr>
                 {% for h in j %}
-                    <td>{{h}} %</td>
+                    <td class="uuuuu">{{h}} %</td>
             {% endfor %}
           </tr>
             {% endfor %}
@@ -43,6 +43,14 @@
   @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
   h1, th {
     font-family: "Kanit", sans-serif;
+  }
+  .centerr{
+    text-align: center;
+    border: 0.5px solid black;
+  }
+  .uuuuu {
+    border: 0.5px solid black;
+    text-align: center;
   }
   .yearr{
     text-decoration: underline;
