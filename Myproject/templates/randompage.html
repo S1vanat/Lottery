@@ -1,12 +1,5 @@
 {% extends 'navbar.html'%} {% block content%}
-<head>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
-    h1, p , h3, a {
-      font-family: 'Kanit', sans-serif;
-    }
-  </style>
-</head>
+<title>Random number</title>
 <div class="container">
   <br />
   <div class="header">
@@ -17,60 +10,63 @@
     <div class="random_number">
       <h1>เลขที่ออก</h1>
       <div class="randomnum">
-        <p>{{ random_number }}</p>
+        <p id="full_random_number"></p>
       </div>
       <hr />
-      <button type="submit" class="btn btn-primary">
-        <a href="{% url 'randompage' %}">สุ่มใหม่อีกครั้ง</a>
+      <button type="submit" class="btn btn-primary" onclick="addRow()">
+        สุ่มใหม่อีกครั้ง
       </button>
     </div>
     <br />
     <h3>ประวัติการสุ่มตัวเลขล็อตเตอรี่</h3>
     <hr />
     <!-- table view -->
+    <h1 id="random_number"></h1>
     <div class="history_number">
       <table class="table table-hover">
         <thead>
           <tr>
             {% for i in herder %}
-            <th scope="col">{{ i }}</th>
+            <th scope="col" class="header_table">{{ i }}</th>
             {% endfor %}
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>{{ random_number }}</td>
-            <td>{{ three_num_first }}</td>
-            <td>{{ three_num_last }}</td>
-            <td>{{ two_num_last }}</td>
-          </tr>
-        </tbody>
+        <tbody id="tbody"></tbody>
       </table>
     </div>
   </div>
 </div>
-
-<style>
-  .randomnum {
-    border: 2px solid rgb(255, 217, 0);
-    border-radius: 15px;
-    width: 20%;
-    margin-left: 40%;
-    background-color: yellow;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-
+<script>
+  var count = 0;
+  function addRow(random_num) {
+    var random_number = Math.floor(
+      Math.random() * (1000000 - 99999 + 1) + 99999
+    );
+    document.getElementById("full_random_number").innerHTML = random_number;
+    var cell, cell2, cell3, cell4, row_th, tbody;
+    tbody = document.querySelector("#tbody");
+    row_th = tbody.insertRow(0);
+    cell = row_th.insertCell(0);
+    cell.innerHTML = random_number.toString().substr(4, 5);
+    cell2 = row_th.insertCell(0);
+    cell2.innerHTML = random_number.toString().substr(3, 5);
+    cell3 = row_th.insertCell(0);
+    cell3.innerHTML = random_number.toString().substr(0, 3);
+    cell4 = row_th.insertCell(0);
+    cell4.innerHTML = random_number.toString();
   }
-  
-
-.randomnum:hover {
-  background-color: #fff;
-  color: #00989A;
-}
-.randomnum:hover:after {
-  opacity: 1;
-  transform: scale(0.4);
-}
+</script>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap");
+  h1,
+  p,
+  h3,
+  a {
+    font-family: "Kanit", sans-serif;
+  }
+  .randomnum {
+    color: #00989a;
+  }
 
   .random_number {
     text-align: center;
@@ -82,6 +78,10 @@
   }
   p {
     margin: 0;
+  }
+  .header_table {
+    align-items: center;
+    color: rgb(0, 85, 170);
   }
 </style>
 {% endblock %}
