@@ -96,7 +96,7 @@ def percent(request):
     count0, count1, count2, count3, count4, count5, count6, count7, count8, count9 = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
     position = 0
     lak = 1
-    list_sequence = ["เลข 0", "เลข 1", "เลข 2", "เลข 3", "เลข 4", "เลข 5", "เลข 6", "เลข 7", "เลข 8", "เลข 9"]
+    list_sequence = ["หลัก","เลข 0", "เลข 1", "เลข 2", "เลข 3", "เลข 4", "เลข 5", "เลข 6", "เลข 7", "เลข 8", "เลข 9"]
     list1 = []
     list2 = []
     list3 = []

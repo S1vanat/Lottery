@@ -4,51 +4,59 @@
     <br /><br />
     <h1>เปอร์เซ็นการออกรางวัลของแต่ละเลขในแต่ละหลัก</h1>
     <hr />
-    <div class="row mt-2">
-      <div class="col">
-        <!-- table -->
-          <tbody>
-            
-          </tbody>
-        </table>
-            {% for k, year in list3 %}
-            <table style="width:100%">
-              <tr>
-                {% for head in list_sequence%}
-                  <th>{{ head }}</th>
-                  {% endfor %}
-              </tr>
-            <h1 class="yearr">ปี : {{year}}</h1>
-            <hr/>
-            <tbody>
-              {% for j in k %}
-              <tr>
-                {% for h in j %}
-                    <td>{{h}} %</td>
+    <!-- table -->
+
+    {% for k, year in list3 %}
+    <div class="container" class="c-table">
+      <table style="width: 100%" class="table">
+        <thead>
+          <tr>
+            {% for head in list_sequence%}
+            <th scope="col" class="p-herder-t">{{ head }}</th>
             {% endfor %}
           </tr>
+        </thead>
+        <h3 class="yearr">ปี : {{year}}</h3>
+        <hr />
+        <tbody>
+          {% for j in k %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            {% for h in j %}
+            <td>{{h}} %</td>
             {% endfor %}
-          </tbody>
-            {% endfor %}
-
-
-        </table>
-      </div>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-    <br />
+    <BR></BR>
+    <hr>
+    {% endfor %}
   </div>
-  
+  <br />
 </body>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
-  h1, th {
+  @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap");
+  h1,
+  p,
+  h3,
+  a {
     font-family: "Kanit", sans-serif;
-  }
-  .yearr{
-    text-decoration: underline;
   }
   tr {
     border: 0.5px solid black;
+    border-radius: 5px;
+  }
+  .p-herder-t {
+    /* background-color: rgb(255, 166, 0); */
+    background-color: #18b7be;
+    margin: "auto";
+    padding: 10px;
+  }
+  .c-table .table {
+    border-radius: 10px;
+    border: 1px solid rgb(0, 89, 255);
   }
 </style>
 {% endblock %}
