@@ -18,7 +18,7 @@
                   <th>{{ head }}</th>
                   {% endfor %}
               </tr>
-            <h1>ปี : {{year}}</h1>
+            <h1 class="yearr">ปี : {{year}}</h1>
             <hr/>
             <tbody>
               {% for j in k %}
@@ -43,6 +43,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Prompt:ital,wght@1,300&display=swap');
   h1, th {
     font-family: "Kanit", sans-serif;
+  }
+  .yearr{
+    text-decoration: underline;
+  }
+  tr {
+    border: 0.5px solid black;
   }
 </style>
 {% endblock %}
