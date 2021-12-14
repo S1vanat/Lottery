@@ -225,7 +225,7 @@ def page1(request):
     """rander to page1"""
     percent = percent_per_year()
     left = [0,1,2,3,4,5,6,7,8,9] 
-    height = percent[10]
+    height = percent[0]
     tick_label = [0,1,2,3,4,5,6,7,8,9]
     max_percent = max(percent[0])
     min_percent = max(percent[0])
@@ -233,9 +233,9 @@ def page1(request):
     plt.bar(left, height, tick_label = tick_label,
         width = 0.3, color = ['red', 'green'])
     
-    plt.xlabel('axis X is Number 0-9')
-    plt.ylabel('axis Y is Frequency of winning numbers')
-    plt.title('2564')
+    plt.xlabel('Number 0-9')
+    plt.ylabel('Percent Frequency of number')
+    plt.title('2554')
     # plt.show()
     
     return render(request, 'page1.html')
